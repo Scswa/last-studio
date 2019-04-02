@@ -1,1 +1,98 @@
 @import url(https://fonts.googleapis.com/css?family=Lusitana);
+
+body {
+  background-color: #f5f5f5;
+  font-family: 'Lusitana', serif;
+  line-height: 1.5;
+  color: #6f6f6f;
+  text-align: center;
+}
+
+header {
+  background-image: url(../images/header.jpg);
+  /* Background image to header.jpg */
+  height: 675px;
+  /* Hight to 675px */
+  background-position: center;
+  /* Show the center of the background image */
+  background-size: cover;
+  /* Make background image stretch to cover the header */
+  padding-top: 50px;
+  /* Add 50px space inside the top of the header */
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+nav a {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  /* Removes underline */
+  padding: 0 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.introduction {
+  border-bottom: 2px solid #e6e6e6
+}
+
+.container {
+  padding-top: 125px;
+  padding-bottom: 125px;
+}
+
+h3 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 34px;
+  padding: 0 80px;
+  /* Applied here to make the text appear on 4 lines over 3  */
+}
+
+p {
+  margin: 30px 0;
+  padding: 0 80px;
+}
+
+section img {
+  /* Only applies to images inside of the sections */
+  margin-bottom: 20px;
+}
+
+.services {
+  background-color: white;
+}
+
+.services p {
+  padding: 0 20px;
+}
+
+footer {
+  background-color: #f8d5b5
+}
+
+h4 {
+  color: #ffffff;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 0 0 20px 0;
+}
+
+footer a {
+  color: #6f6f6f
+}
+
+small {
+  color: #ffffff
+}
