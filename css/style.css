@@ -6,6 +6,16 @@ body {
   line-height: 1.5;
   color: #6f6f6f;
   text-align: center;
+  transition: background-color 0.5s;
+}
+
+/* These classes are NOT currently added anywhere in HTML (brogue and stationary)*/
+.brogue-active {
+  background-color: #e6e7d9;
+}
+
+.stationary-active {
+  background-color: #D6D9D9;
 }
 
 header {
@@ -95,4 +105,66 @@ footer a {
 
 small {
   color: #ffffff
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* Fix the lightbox to the page so it can't be scrolled */
+  width: 100%;
+  height: 100vh;
+  /* Make the lightbox fill the screen */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Add a semi-transtrapent dark background */
+  /* rgba stands for Red Green Blue and Alpha. It allows us to create semi-tranparent colours. The channels have a minimum value of 0 and a maximum of 225. The Alpha channel sets transparecy - 1 being completly opaque, 0 being completely tranparen. This is the only colour representation that allows tranparency
+  /* Hide the lightbox */
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* We would usual use display: none; to hide an element, but this cant be animated. so instead... */
+  /* Add a smototh transition between opacity & height */
+  transition: height 0s, opacity 0.5s;
+}
+
+.fadeIn {
+  height: 100vh;
+  opacity: 1;
+}
+
+.lightbox img {
+  /* To put the lightbox image in the middle of the screen */
+  position: absolute;
+  /* Note that images are moved from their top left hand corner */
+  top: 50%;
+  left: 50%;
+  /* To get the element into the middle of the screen, we move it half its width & height */
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+
+  /* Make the nav a stack */
+  nav a {
+    display: block;
+    padding: 5px 0;
+  }
+
+  /* Reduce the font-size of our h2 to 24px */
+  h2 {
+    font-size: 24px;
+    padding: 0 0 0 0;
+  }
+
+  /* Remove the paragraph padding */
+  p {
+    padding: 0 0 0 0;
+  }
+
+  /* Decrease the container padding on top and bottom */
+  .container {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }

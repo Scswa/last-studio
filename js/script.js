@@ -1,48 +1,94 @@
 /*jshint esversion: 6 */
 
-// Lightbox functionality
-// the first step we want to do is to show our lightbox when we click on an image
-// we want to make sure that the image we clicked on will be in the lightbox
-// we want to make sure that when we click on the lightbox when its visible that it will fade out and hide itself again
+// We need to listen for scroll events on the page
+// When we scrollbar reaches a certain distance
+// We want to change the background color of the body
 
-$('.brogues img, .stationary img').on('click', function() {
-  $('.lightbox').fadeIn();
+// .querySelector
+// .querySelectorAll
+// addEventListener
+// console.log() allows us to view the js in inspect, Console
 
-  let imageSrc = $(this).attr('src');
-  $('.lightbox img').attr('src', imageSrc);
-});
+// Let is changable (Changing background color)
+// Const (Constant)
 
-$('.lightbox').on('click', function() {
-  $('.lightbox').fadeOut();
-});
+// Funtions allow us to tie things togethers
+// You can create your own actions and use pre existing ones
+// Document relates to the html page . is the action
 
-// We first need to listen for the scroll event on the page
-// Next, when our browser reaches a certain distance form the top of the page we need to change the body elements background color
+const bodyTag = document.querySelector("body");
+// Step 1: Decide which tags in HTML we want to use & save them as constants at the top of the page
 
-const body = document.querySelector("body");
-
-// Listen out for scroll events on our page
 document.addEventListener("scroll", function() {
-  //console.log("Page scrolled");
+  // Step 2: Decide which user events ie,click scroll, ect, we want to trigger our code on. Here we want to listen out or any scroll events on our page
 
-  // Find out and store how far from the top of the page the scrollbar is
+  // Do something when the page is scrolled
+  // console.log("Page has been scrolled! Wooooo!");
+
+  // Step 3: Find out and store how far from the top of the page the scroll bar is
+  // use window when refering to the scrollbar as it is on the browser frame
   let distanceFromTop = window.scrollY;
   console.log(distanceFromTop);
 
-  // If distanceFromTop is greater than 1000 pixels, do something
+  // If the distance from top is greater than 1000px, do something
+
   if (distanceFromTop > 1000) {
-    console.log("past 1000 pixels");
-    body.classList.add("brogue-active");
+    // Do this
+    // console.log("More then 1000 pixels ");
+    // bodyTag.style.backgroundColor = "black";
+    bodyTag.classList.add("brogue-active");
+
   } else {
-    // Otherwise do something else
-    console.log("less than 1000 pixels down");
-    body.classList.remove("brogue-active");
+    // Do something else
+    // console.log("Less than 1000 pixels ");
+    // bodyTag.style.backgroundColor = "#f5f5f5";
+    bodyTag.classList.remove("brogue-active");
   }
 
-  if (distanceFromTop > 4400) {
-    body.classList.add("stationary-active");
+  if (distanceFromTop > 4300) {
+    bodyTag.classList.add("stationary-active");
   } else {
-    body.classList.remove("stationary-active");
+    bodyTag.classList.remove("stationary-active");
   }
+});
 
+// Lightbox
+// When we click on an image
+// We want to show the lightbox
+// Inside the lightbox we want to show the image we clicked on
+// When we click on the lightbox we want it to disappear
+
+// Step 1: Decide which tags in HTML we want to use and save them in constants
+
+// Save all our images into a constant (const) - This will be a list of images
+
+const images = document.querySelectorAll("section img");
+const lightbox = document.querySelector(".lightbox");
+const lightboxImage = document.querySelector(".lightbox img");
+// Let's you look at what's saves in images
+
+console.log(images);
+// Our images constant contains a list of images. We want to add an event listener to each image. To do this we use a loop. in javascript this is calle a forEach function. It loops through all our images & applies the same code.
+images.forEach(image => {
+
+  // Step 2: Add a click event listener to all of our images
+  image.addEventListener("click", function() {
+
+    console.log("image clicked!");
+    // Step 3: Show the lightbox
+    lightbox.classList.add("fadeIn");
+    // Step 4: Show the right image
+    // Save the image source attribute from the image we click on
+    // The keyword "this" refernces the image we have clicked on - THIS image. .getAttribute because it contains the image locations.
+    let imageSrc = this.getAttribute("src");
+    console.log(imageSrc);
+    // Set the lightbox image src attribute to the one we save
+    lightboxImage.setAttribute("src", imageSrc);
+
+  });
+});
+
+// Step 4: When we click on the lightbox remove the fadeIn class
+lightbox.addEventListener("click", function() {
+  lightbox.classList.remove("fadeIn");
 });
