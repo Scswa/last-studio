@@ -37,6 +37,7 @@ document.addEventListener("scroll", function() {
     // console.log("More then 1000 pixels ");
     // bodyTag.style.backgroundColor = "black";
     bodyTag.classList.add("brogue-active");
+    // bodyTag.style.fontSize = "50px";
 
   } else {
     // Do something else
@@ -65,6 +66,7 @@ document.addEventListener("scroll", function() {
 const images = document.querySelectorAll("section img");
 const lightbox = document.querySelector(".lightbox");
 const lightboxImage = document.querySelector(".lightbox img");
+
 // Let's you look at what's saves in images
 
 console.log(images);
